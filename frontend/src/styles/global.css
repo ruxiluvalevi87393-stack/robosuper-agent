@@ -1,0 +1,295 @@
+/* ===== 黑金矿山风全局样式（对齐参考项目 MineGuard） ===== */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #fadb14;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8c8c8c;
+}
+
+/* ===== 通用页面结构 ===== */
+
+/* 页头：金色左竖条 + 标题 + 右侧操作区 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.page-header h2 {
+  color: #fafafa;
+  font-size: 18px;
+  font-weight: 600;
+  border-left: 4px solid #fadb14;
+  padding-left: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 筛选卡片：面板底色 #1f1f1f，下边距 12 */
+.filter-card {
+  background: #1f1f1f;
+  border: 1px solid #303030;
+  border-radius: 4px;
+  padding: 16px 16px 0;
+  margin-bottom: 12px;
+}
+
+/* 数据卡片 */
+.table-card {
+  background: #1f1f1f;
+  border: 1px solid #303030;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+/* 分页：右对齐 */
+.pager {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== 排查工作台：工具卡片 ===== */
+.tool-card {
+  background: #141414;
+  border: 1px solid #303030;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.tool-card-done {
+  border-color: rgba(82, 196, 26, 0.45);
+}
+@keyframes tool-pulse {
+  0%,
+  100% {
+    background-color: #141414;
+  }
+  50% {
+    background-color: rgba(250, 219, 20, 0.1);
+  }
+}
+.tool-card-running {
+  animation: tool-pulse 1.2s ease-in-out infinite;
+  border-color: rgba(250, 219, 20, 0.45);
+}
+.step-badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(250, 219, 20, 0.5);
+  color: #fadb14;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===== 排查工作台：并行分支框 ===== */
+.parallel-frame {
+  border: 1px solid rgba(250, 219, 20, 0.35);
+  border-radius: 8px;
+  background: rgba(250, 219, 20, 0.04);
+  padding: 10px 12px 4px;
+  margin: 0 0 8px;
+}
+.parallel-frame-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.parallel-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: rgba(250, 219, 20, 0.15);
+  border: 1px solid rgba(250, 219, 20, 0.6);
+  color: #fadb14;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.branch-column {
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 100%;
+}
+.branch-title {
+  color: #fafafa;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  margin: 0 0 8px;
+  background: rgba(250, 219, 20, 0.1);
+  border-left: 3px solid #fadb14;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ===== 排查工作台：子智能体嵌套（父子分级） ===== */
+.subflow {
+  margin: 0 0 8px 14px;
+  border-left: 2px solid #303030;
+  padding-left: 12px;
+}
+
+/* ===== 布局：侧边栏 + 顶栏 ===== */
+.sidebar-logo {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 1px solid #303030;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sidebar-logo-text {
+  color: #fadb14;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  border-right: none;
+}
+.ant-menu-dark .ant-menu-item-selected {
+  box-shadow: inset 3px 0 0 #fadb14;
+}
+
+.topbar {
+  height: 60px;
+  background: #1f1f1f;
+  border-bottom: 1px solid #303030;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.collapse-btn {
+  cursor: pointer;
+  color: #d9d9d9;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.collapse-btn:hover {
+  color: #fadb14;
+}
+.page-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fafafa;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #d9d9d9;
+  transition: color 0.2s;
+  padding: 0 4px;
+}
+.user-info:hover {
+  color: #fadb14;
+}
+
+.main-content {
+  background: #0a0a0a;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* ===== 统计卡片 ===== */
+.stat-card {
+  background: #1f1f1f;
+  border: 1px solid #303030;
+  border-top: 2px solid #fadb14;
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250, 219, 20, 0.5);
+}
+.stat-card-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(250, 219, 20, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fadb14;
+}
+.stat-card-value {
+  color: #fadb14;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.stat-card-title {
+  color: #8c8c8c;
+  font-size: 13px;
+  margin-top: 4px;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 1200px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

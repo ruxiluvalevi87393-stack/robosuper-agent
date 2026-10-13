@@ -1,0 +1,72 @@
+# IDE & 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 环境配置与密钥文件
+.env
+.env.local
+.env.*.local
+
+# Python 相关
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+
+# Node / 前端依赖与产物
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+*.local
+
+# 日志及操作系统临时文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 用户上传与解析数据目录（禁止提交至 Git，杜绝隐私与业务文档泄露）
+# 仅锚定项目根目录，避免误伤业务代码中同名目录（如 app/xxx/data/）
+/data/
+/logs/
+uploads/
+backend/data/
+
+# Office 临时锁文件（打开 xlsx/docx 时自动生成）
+~$*.xlsx
+~$*.docx
+~$*.pptx
+
+# Python 测试 / 类型检查缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+#dgr
+
+# 本地 Milvus Lite 库文件（兜底通道）
+.milvus/

@@ -1,0 +1,23 @@
+# MCP 服务端集群依赖（与 backend/ 共用同一 conda 环境）
+# 安装：pip install -r requirements.txt
+
+fastmcp>=3.0                 # MCP 服务端框架（streamable HTTP）
+pydantic>=2.7
+pydantic-settings>=2.3       # 配置（读 mcp-servers/.env + backend/.env）
+loguru==0.7.2                # 日志（对齐后端）
+
+# ---------- PG（servo_param / epc_parts / inventory / work_order 四服务共用） ----------
+sqlalchemy>=2.0.30
+psycopg2-binary==2.9.10
+
+# ---------- Neo4j（alarm_graph 用） ----------
+neo4j>=5.20
+
+# ---------- HTTP ----------
+httpx>=0.27                  # streamable HTTP 传输层
+
+# ---------- 接地索引向量检索（alarm_graph alarm_reasoning 用） ----------
+langchain-core
+langchain-community
+langchain-milvus
+pymilvus
